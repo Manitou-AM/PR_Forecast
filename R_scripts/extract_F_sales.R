@@ -39,6 +39,9 @@ Dim_Item_Warehouse=extract_table("select * from dwh.Dim_Item_Warehouse",Rkey="Di
 
 save(F_Sales_Stat,Dim_Facility,Dim_Warehouse,Dim_Customer_Delivery_Addresses,
      Dim_Customer,Dim_Item,Dim_Item_Facility,Dim_Exchange_Rate,Dim_Item_Warehouse,
-     file="raw_data.Rdata",compress = F)
+     file=paste0(path_root,path_data_m3,"raw_data.Rdata"),compress = F)
 
+save(F_Sales_Stat,Dim_Facility,Dim_Warehouse,Dim_Customer_Delivery_Addresses,
+     Dim_Customer,Dim_Item,Dim_Item_Facility,Dim_Exchange_Rate,Dim_Item_Warehouse,
+     file=paste0(path_root,path_data_m3,"raw_data.Rdata"),compress = F)
 
