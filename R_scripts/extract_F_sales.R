@@ -3,10 +3,10 @@ library(DBI)
 library(odbc)
 library(data.table)
 
-# sort(unique(odbcListDrivers()[[1]]))
+sort(unique(odbcListDrivers()[[1]]))
 
 con <- dbConnect(odbc(), 
-                 Driver = "ODBC Driver 11 for SQL Server", 
+                 Driver = odbc_driver, 
                  Server = "MAN-DWHPRDDB", 
                  Database = "M3_REPORTING",
                  UID = "BO_READER",

@@ -16,3 +16,12 @@ if(Sys.info()['sysname']=="Windows"){
 
 
 path_data_m3=paste0(path_root,"01. data/extract_m3/")
+
+
+## Other const
+if(Sys.info()['nodename']=="MAN-DATALAB02"){
+  odbc_driver="ODBC Driver 11 for SQL Server"
+}
+if(Sys.info()['nodename']=="20172067M"){
+  odbc_driver="ODBC Driver 17 for SQL Server"
+}
