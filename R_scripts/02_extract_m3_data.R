@@ -59,6 +59,9 @@ Dim_Exchange_Rate=extract_table("select * from dwh.Dim_Exchange_Rate",Rkey="Dim_
 Dim_Item_Warehouse=extract_table("select * from dwh.Dim_Item_Warehouse",Rkey="Dim_Item_Warehouse_dKey",
                                  save_csv=T,save_file="Dim_Item_Warehouse.csv")
 
+Dim_Serial_Item=extract_table("select * from dwh.dim_serial_item",
+                                 save_csv=T,save_file="Dim_Serial_Item.csv")
+
 
 
 save(F_Sales_Stat,Dim_Facility,Dim_Warehouse,Dim_Customer_Delivery_Addresses,

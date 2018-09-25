@@ -17,7 +17,7 @@ if(Sys.info()['sysname']=="Windows"){
 
 
 path_data_m3=paste0(path_root,"01. data/extract_m3/")
-
+path_data_assist=paste0(path_root,"01. data/ticket_assist/")
 
 ## Other const
 if(Sys.info()['nodename']=="MAN-DATALAB02"){
@@ -29,4 +29,8 @@ if(Sys.info()['nodename']=="20172067M"){
 
 .Nby=function(dt,col){
   dt[,.N,by=col]
+}
+
+cb=function(dt){
+  write.table(dt,row.names = F,sep="|","clipboard-10000")
 }
