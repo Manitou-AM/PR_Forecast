@@ -3,6 +3,7 @@ library(data.table)
 library(DBI)
 library(odbc)
 library(purrr)
+library(dygraphs)
 
 # Paths
 if(Sys.info()['sysname']=="Windows"){

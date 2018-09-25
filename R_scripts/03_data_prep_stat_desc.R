@@ -24,4 +24,19 @@ F_Sales_stat[Dim_Item,Product_group:=i.Product_group]
 F_Sales_stat[Dim_Item,Product_group_name:=i.Product_group_name]
 F_Sales_stat[Dim_Item,Product_group_description:=i.Product_group_description]
 F_Sales_stat[,is_parts:=Product_group%in%product_group_parts$Product_group_parts]
-# map(F_Sales_stat
+F_Sales_stat[,Invoice_Date:=as.Date(Invoice_Date)]
+
+plotdy=function(dt,col_date,metrique,col_agg){
+  
+  dt_dy=dt[,.(Invoice_Quantity=sum(Invoice_Quantity)),by=.()]
+  dt_dy=F_Sales_stat[(is_parts),.(Invoice_Quantity=sum(Invoice_Quantity)),by=.(Invoice_Date,Product_group_name)]
+  
+  dcast_dy=dcast(dt_dy,Invoice_Date~Product_group_name,value.var="Invoice_Quantity")
+  dt_dy[Product_group=="B053"]
+  
+  dygraph(dt_dy[Product_group=="B053"][,.(Invoice_Date,Invoice_Quantity)])
+  dygraph(dcast_dy[Invoice_Date>"2018-05-01"])
+  
+}
+
+
