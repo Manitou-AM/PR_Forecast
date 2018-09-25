@@ -2,7 +2,7 @@
 library(data.table)
 library(DBI)
 library(odbc)
-
+library(purrr)
 
 # Paths
 if(Sys.info()['sysname']=="Windows"){
@@ -24,4 +24,8 @@ if(Sys.info()['nodename']=="MAN-DATALAB02"){
 }
 if(Sys.info()['nodename']=="20172067M"){
   odbc_driver="ODBC Driver 17 for SQL Server"
+}
+
+.Nby=function(dt,col){
+  dt[,.N,by=col]
 }
