@@ -5,13 +5,18 @@ library(data.table)
 
 sort(unique(odbcListDrivers()[[1]]))
 
-con <- dbConnect(odbc(), 
+con_v13 <- dbConnect(odbc(), 
                  Driver = odbc_driver, 
                  Server = "MAN-DWHPRDDB", 
                  Database = "M3_REPORTING",
                  UID = "BO_READER",
                  PWD = "93924bnqbz")
-
+con_v10 <- dbConnect(odbc(), 
+                     Driver = odbc_driver, 
+                     Server = "MAN-DWHPRDDB", 
+                     Database = "M3_REPORTING",
+                     UID = "BO_READER",
+                     PWD = "93924bnqbz")
 
 extract_table=function(query,Rkey=NULL,save_csv=F,save_path=path_data_m3,save_file="m3_data_"){
   
