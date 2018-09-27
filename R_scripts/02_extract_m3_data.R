@@ -68,7 +68,14 @@ Dim_Item_Warehouse=extract_table(con_v13,"select * from dwh.Dim_Item_Warehouse",
 Dim_Serial_Item=extract_table(con_v13,"select * from dwh.dim_serial_item",
                                  save_csv=T,save_file="Dim_Serial_Item.csv")
 
-F_Sales_Stat_v10=extract_table(con_v10,"select * from Customer_SalesAnalysis",
+F_Sales_Stat_v10=extract_table(con_v10,"select [Dim_Customers_dKey],[Dim_Items_dKey],[Item Number]
+                                ,[Dim_Customers_DeliveryAddresses_dKey]
+                                ,[Invoice Date]
+                                ,[Invoiced quantity basic unit]
+                                ,[Invoiced quantity alternate unit]
+                                ,[Invoiced quantity sales price unit]
+                                ,[Invoiced quantity statistical unit] 
+                               from Customer_SalesAnalysis",
                                save_csv=T,save_file="Customer_SalesAnalysis.csv")
 
 save(F_Sales_Stat,Dim_Facility,Dim_Warehouse,Dim_Customer_Delivery_Addresses,
