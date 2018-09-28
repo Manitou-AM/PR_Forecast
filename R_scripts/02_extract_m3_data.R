@@ -79,6 +79,10 @@ F_Sales_Stat_v10=extract_table(con_v10,"select [Dim_Customers_dKey],[Dim_Items_d
                                from Customer_SalesAnalysis",
                                save_csv=T,save_file="Customer_SalesAnalysis.csv")
 
+F_Sales_Stat_v10=extract_table(con_v10,"select *
+                               from Customer_SalesAnalysis",
+                               save_csv=T,save_file="Customer_SalesAnalysis.csv")
+
 save(F_Sales_Stat,Dim_Facility,Dim_Warehouse,Dim_Customer_Delivery_Addresses,
      Dim_Customer,Dim_Item,Dim_Item_Facility,Dim_Exchange_Rate,Dim_Item_Warehouse,
      file=paste0(path_data_m3,"raw_data_compress.Rdata"),compress = T)
